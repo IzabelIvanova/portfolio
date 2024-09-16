@@ -1,80 +1,453 @@
-<!DOCTYPE html>
-  <html lang="en">
-    <head>
-      <meta charset="utf-8">
-      <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <title>Personal Portfolio Webpage</title>
-      <link rel="stylesheet" href="styles.css">
-      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
-    </head>
-    <body>
-      <header>
-        <nav id="navbar">
-          <a class="nav-link" href="#welcome-section">About me</a>
-          <a class="nav-link" href="#projects">Projects</a>
-          <a class="nav-link" href="#contacts">Contacts</a>
-        </nav>
-      </header>
+@import url('https://fonts.googleapis.com/css?family=Noto%20Sans%20Hanifi%20Rohingya:700|Noto%20Sans%20Hanifi%20Rohingya:400');
 
-     <main>
-      <section id="welcome-section">
-        <div class="left-side">
-          <h1 class="welcome-text fadeInLeft">
-            Hey There!
-            <br>
-            I`m 
-            <span class="color-effect">Izabel Ivanova</span>
-          </h1>
-          <p>A fresh graduate with a passion for front-end development. I love bringing creative ideas to life through clean, intuitive web designs using HTML, CSS, and a dash of JavaScript (still learning!). I'm based in Bulgaria and always excited to dive into new challenges that help me grow as a developer. When I'm not coding, you'll probably find me exploring design trends or enjoying nature walks.</p>
-          <a href="#contacts" class="contact-btn hvr-float-shadow fadeInLeft">Contact Me</a>
-        </div>
-        <div class="right-side">
-          <img id="portrait" class="fadeInRight" src="https://github.com/IzabelIvanova/tribute-page/blob/main/betty-noBG.png?raw=true" alt="Portrait of Izabel Ivanova">
-        </div>
-      </section>
+:root{
+  --text: #08030c;
+  --welcome-background: #f6effb;
+  --primary: #9939d5;
+  --secondary: #e792d2;
+  --secondary30: hsla(315, 64%, 74%, 0.3);
+  --accent: #da58a0;
+  /*text-dark theme*/
+  --text-dm: #f8f3fc; 
+  --welcome-background-dm: #0b0410;
+  --primary-dm: #8a2ac6;
+  --secondary-dm: #6d1858;
+  --accent-dm: #a7256d;
+}
+*{
+  scroll-padding-top: 3em;
+}
 
-      <section id="projects">
-        <h1 class="projects-text project-tile">Here is some of my recent work</h1>
-        <div class="projects-container">
-          <div class="container hvr-grow">
-            <a id="profile-link" class="project-link" href="https://izabelivanova.github.io/FitLife-landing-page/" alt="FitLife Landing Page" target="_blank">
-            <img src="https://github.com/IzabelIvanova/FitLife-landing-page/blob/main/fitlife.png?raw=true" alt="Picture of the FitLife Landing Page">
-            <p>Product Landing Page</p>
-            </a>
-          </div>
-          <div class="container hvr-grow">
-            <a class="project-link" href="https://izabelivanova.github.io/technial-documentation-page/" alt="Technical documentation page" target="_blank">
-              <img src="https://github.com/IzabelIvanova/portfolio/blob/main/documentation.png?raw=true" alt="Picture of the Technical documentation page">
-              <p>Technical Documentation Page</p>
-            </a>
-          </div>
-          <div class="container hvr-grow">
-            <a class="project-link" href="https://izabelivanova.github.io/survey-form/" alt="Survey Form" target="_blank">
-              <img src="https://github.com/IzabelIvanova/portfolio/blob/main/survey-form.png?raw=true" alt="Picture of the Survey Form">
-              <p>Survey Form</p>
-            </a>
-          </div>
-          <div class="container hvr-grow">
-            <a class="project-link" href="https://izabelivanova.github.io/tribute-page/" alt="Tribute page" target="_blank">
-             <img src="https://github.com/IzabelIvanova/portfolio/blob/main/tr-page.png?raw=true" alt="Picture of the Tribute page">
-              <p>Tribute Page</p>
-            </a>
-          </div>
-        </div>
-      </section>
+ *,
+::before,
+::after {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
 
-      <section id="contacts">
-        <div>
-         <h2 class="contacts-h2">Let’s build something awesome together!</h2>
-         </div>
-         <div class="icon-container">
-         <ul>
-          <li><a href="https://github.com/IzabelIvanova" target="_blank"><i class="fa-brands fa-github"></i></a></li>
-          <li><a href="mailto:izabel.ivanova.300801@gmail.com" target="_blank"><i class="fa-regular fa-envelope"></i></a></li>
-          <li><a href="tel:+359885961990" target="_blank"><i class="fa-solid fa-phone"></i></a></li>
-         </ul>
-         </div>
-      </section>
-    </main>
-  </body>
-</html>
+body {
+  font-family: 'Noto Sans Hanifi Rohingya';
+  font-weight: 400;
+ 
+}
+
+h1, h2, h3, h4, h5 {
+  font-family: 'Noto Sans Hanifi Rohingya';
+  font-weight: 700;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-size: 100%; /* 16px */
+} 
+
+h1 {font-size: 4.210rem; /* 67.36px */}
+
+h2 {font-size: 3.158rem; /* 50.56px */}
+
+h3 {font-size: 2.369rem; /* 37.92px */}
+
+p {font-size: 1.5rem; /* 24px */}
+
+small {font-size: 0.750rem; /* 12px */}
+
+a{
+  text-decoration: none;
+}
+
+/*HEADER*/
+
+#navbar{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  width: 100%;
+  border: 1px solid transparent;
+  box-shadow: 0 5px 5px -1px rgba(0, 0, 0, 0.1);
+  text-transform: uppercase;
+  background-color: var(--welcome-background);
+  z-index: 100;
+}
+
+.nav-link{
+  position:relative;
+  padding: 10px;
+  margin: 10px 30px;
+  color: var(--text);
+}
+
+.nav-link:hover{
+    background-color: var(--secondary30);
+    color: var(--text);
+    border-radius: 5px;
+    transition: 0.3s ease;
+}
+
+
+/*END HEADER*/
+
+
+/*WELCOME-SECTION*/
+#welcome-section{
+  display: grid;
+  padding: 3% 15% 0 15% ;
+  align-items: center;
+  grid-template-columns: 2fr 1fr;
+  grid-gap: 5rem;
+  justify-items: center;
+  width: 100%;
+  height: 100vh;
+  background-color: var(--welcome-background);
+}
+
+#portrait{
+  height: 450px;
+  width: auto;
+  background: none;
+  border-radius: 50%;
+}
+
+.color-effect{
+  background: linear-gradient(120deg, var(--primary), var(--accent));
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.welcome-text{
+  padding-bottom: 2rem;
+}
+
+.contact-btn{
+  padding: 0.5em 2em;
+  margin-top: 2rem;
+  background-color: var(--primary);
+  color: var(--welcome-background);
+  border-radius: 5px;
+  transition: transform ease 0.2s, box-shadow ease 0.2s;
+  display: inline-block;
+  font-size: 1.5rem;
+  z-index: 2;
+  white-space: nowrap;
+}
+
+.hvr-grow-shadow {
+  display: inline-block;
+  vertical-align: middle;
+  -webkit-transform: perspective(1px) translateZ(0);
+  transform: perspective(1px) translateZ(0);
+  box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+  -webkit-transition-duration: 0.3s;
+  transition-duration: 0.3s;
+  -webkit-transition-property: box-shadow, transform;
+  transition-property: box-shadow, transform;
+}
+
+.hvr-float-shadow {
+  display: inline-block;
+  vertical-align: middle;
+  -webkit-transform: perspective(1px) translateZ(0);
+  transform: perspective(1px) translateZ(0);
+  box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+  position: relative;
+  -webkit-transition-duration: 0.3s;
+  transition-duration: 0.3s;
+  -webkit-transition-property: transform;
+  transition-property: transform;
+}
+
+.hvr-float-shadow:before {
+  pointer-events: none;
+  position: absolute;
+  z-index: -1;
+  content: '';
+  top: 100%;
+  left: 5%;
+  height: 10px;
+  width: 90%;
+  opacity: 0;
+  background: -webkit-radial-gradient(center, ellipse, rgba(0, 0, 0, 0.35) 0%, rgba(0, 0, 0, 0) 80%);
+  background: radial-gradient(ellipse at center, rgba(0, 0, 0, 0.35) 0%, rgba(0, 0, 0, 0) 80%);
+  -webkit-transition-duration: 0.3s;
+  transition-duration: 0.3s;
+  -webkit-transition-property: transform, opacity;
+  transition-property: transform, opacity;
+}
+.hvr-float-shadow:hover, .hvr-float-shadow:focus, .hvr-float-shadow:active {
+  -webkit-transform: translateY(-5px);
+  transform: translateY(-5px);
+}
+.hvr-float-shadow:hover:before, .hvr-float-shadow:focus:before, .hvr-float-shadow:active:before {
+  opacity: 1;
+  -webkit-transform: translateY(5px);
+  transform: translateY(5px);
+}
+
+
+/*END WELCOME-SECTION*/
+
+
+/*PROJECTS SECTION*/
+#projects{
+  background-color: var(--welcome-background-dm);
+  color: var(--text-dm);
+}
+
+.projects-text{
+  padding: 3rem 0;
+  text-align: center;
+}
+
+.projects-container{
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  grid-column-gap: 60px;
+  grid-row-gap: 75px;
+  padding: 0 14% 3rem 14%;
+  justify-content: center;
+
+}
+
+.projects-container img{
+  width: 520px;
+  height: 450px;
+  object-fit: cover;
+  border-radius: 10px;
+  margin-bottom: 10px;
+}
+
+.container{
+  text-align: center;
+  background-color: var(--secondary-dm);
+  border-radius: 15px;
+  padding: 10px;
+}
+
+.project-link p{
+  color: var(--text-dm);
+  font-size: 1.7rem;
+}
+
+.hvr-grow {
+  display: inline-block;
+  vertical-align: middle;
+  -webkit-transform: perspective(1px) translateZ(0);
+  transform: perspective(1px) translateZ(0);
+  -webkit-transition-duration: 0.3s;
+  transition-duration: 0.3s;
+  -webkit-transition-property: box-shadow, transform;
+  transition-property: box-shadow, transform;
+}
+
+.hvr-grow:hover, .hvr-grow:focus, .hvr-grow:active {
+  -webkit-transform: scale(1.1);
+  transform: scale(1.1);
+}
+
+/*END PROJECTS SECTION*/
+
+/*CONTACTS SECTION*/
+#contacts{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: var(--welcome-background);
+  padding: 4rem 0;
+}
+
+.contacts-h2{
+   padding-bottom: 3rem;
+}
+
+.icon-container{
+   display: flex;
+}
+
+.icon-container ul {
+   margin: 0;
+  padding: 0;
+  display: flex;
+}
+
+ul li {
+  list-style: none;
+  margin: 0 30px;
+}
+
+ul li  a {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 70px;
+  height: 70px;
+  line-height: 60px;
+  background: var(--welcome-background-dm);
+  border-radius: 50%;
+  font-size: 30px;
+  color: var(--welcome-background);
+  transition: .5s;
+}
+
+ul li a:before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background: var(--accent);
+  transition: .5s;
+  transform: scale(.9);
+  z-index: -1;
+}
+
+ul li a:hover:before {
+  transform: scale(1.1);
+  box-shadow: 0 0 15px var(--accent);
+}
+
+ul li a:hover {
+  color: var(--accent);
+  box-shadow: 0 0 30px var(--accent);
+  text-shadow: 0 0 5px var(--accent);
+}
+/*END CONTACTS SECTION*/
+
+/*ANIMATIONS*/
+.fadeInLeft {
+  opacity: 0;
+  transform: translateX(-50px);
+  animation: fadeInLeft 1s ease-in-out forwards;
+}
+
+@keyframes fadeInLeft {
+  0% {
+    opacity: 0;
+    transform: translateX(-50px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.fadeInRight {
+  opacity: 0;
+  transform: translateX(50px);
+  animation: fadeInRight 1s ease-in-out forwards;
+}
+
+@keyframes fadeInRight {
+  0% {
+    opacity: 0;
+    transform: translateX(50px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.fadeInDown {
+  opacity: 0;
+  transform: translateY(-50px);
+  animation: fadeInDown 1s ease-in-out forwards;
+}
+
+@keyframes fadeInDown {
+  0% {
+    opacity: 0;
+    transform: translateY(-50px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+/*END ANIMATIONS*/
+
+@media only screen and (max-width: 708px){
+  body {
+    display: block;
+    font-weight: 400;
+  }
+
+  h1 {font-size: 1.802rem; /* 28.8px */}
+
+  h2 {font-size: 1.602rem; /* 25.6px */}
+
+  h3 {font-size: 1.424rem; /* 22.72px */}
+
+  p {font-size: 1rem;}
+
+  .fadeInLeft, .fadeInRight, .hvr-grow, .hvr-grow:hover, .hvr-grow:focus, .hvr-grow:active{
+    animation: none;
+    opacity: 1;
+    transform: none;
+  }
+
+  .nav-link{
+  padding: 10px;
+  margin: 10px 10px;
+  }
+
+  /*WELCOME-SECTION*/
+  #welcome-section{
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    justify-content: center;
+    padding: 20% 8%;
+  }
+
+  .welcome-text{
+    padding-bottom: 1.5rem;
+  }
+
+  .left-side p{
+    text-align: justify;
+  }
+  .right-side{
+    display: none;
+  }
+
+  .contact-btn{
+    margin-top: 1.5rem;
+    padding: 0.5em 1.5em;
+    font-size: 1rem;
+  }
+  /* END WELCOME-SECTION*/
+
+  /*PROJECTS SECTION*/
+  .projects-container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .container{
+    width: 350px;
+    height: 310px;
+  }
+
+  .projects-container img{
+    width: 330px;
+    height: 260px;
+  }
+
+  .project-link p{
+    font-size: 1rem;
+  }
+  /*END PROJECTS SECTION*/
+
+  /*CONTACTS SECTION*/
+  ul li  a {
+    color: var(--welcome-background);
+  }
+  /*END CONTACTS SECTION*/
+}
