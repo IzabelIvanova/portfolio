@@ -446,6 +446,10 @@ ul li a:hover {
   /*END PROJECTS SECTION*/
 
   /*CONTACTS SECTION*/
+  .contacts-h2{
+    text-align: center;
+  }
+  
   ul li  a {
     color: var(--welcome-background);
   }
